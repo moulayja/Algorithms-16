@@ -18,3 +18,7 @@ join(["aaa", "bbb", "ccc", "ddd"]) ➞ ["aaabbbcccddd", 0]
 Notes
 More specifically, look at the overlap between the previous words ending letters and the next word's beginning letters.
 */
+
+const join = (A, c = []) => [A.reduce((s,n) => `${s},${n}`
+  .replace(/(.*),\1/g, (_,p) => c.push(p.length) && p)), Math.min(...c)]
+  
